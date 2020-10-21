@@ -1,0 +1,33 @@
+.contact-page{
+    padding: 10% 0 0;
+    h2 {
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+    h3 {
+        color: #866747;
+        font-family: "futuralight";
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+    p {
+        margin: 16px 0 24px;
+        font-family: "futuralight";
+        font-size: 16px;
+        color: #96816C;
+        line-height: 24px;
+        margin-bottom: 32px;
+    }
+    a {
+        display: block;
+        margin-bottom: 16px;
+    }
+    .col-12 {
+        @media(max-width:768px){
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

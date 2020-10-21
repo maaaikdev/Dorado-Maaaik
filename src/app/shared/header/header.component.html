@@ -1,0 +1,95 @@
+
+<div class="contenedor-menu">
+    <!-- <div *ngIf="!isHome" routerLink="/" class="logo-header"></div> -->
+    <div class="logo-header" *ngIf="!isHome" routerLink="/">
+        <img src="assets/img/isologo.png" alt="Logo Dorado"/>
+    </div>
+    <div class="menu">
+        <div class="hamburger">
+            <div class="_layer -top"></div>
+            <div class="_layer -mid"></div>
+            <div class="_layer -bottom"></div>			
+        </div>
+        <div class="p-menu">{{serviceTitle}}</div>
+        <!-- <ul class="menu-list">
+            <li class="sub-menu">
+                <a href="edicion.html"><p>Edicion</p></a>
+                <ul class="ul-edicion">
+                    <li>Rogrido</li>
+                    <li>Jose</li>
+                    <li>Alberto</li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="edicion.html"><p>Audio</p></a>
+                <ul class="ul-edicion">
+                    <li>Rogrido</li>
+                    <li>Jose</li>
+                    <li>Alberto</li>
+                </ul>
+            </li>
+            <li>Color</li>
+            <li>Animación</li>
+            <li>Online</li>
+        </ul> -->
+        <!-- <ul class="menu-list" routerLinkActive="active-work">
+            <li routerLinkActive="active-link" [ngClass]="{'sub-menu': item.subMenu !== undefined && item.subMenu.length > 0}" *ngFor="let item of menu[0].subMenu; let i = index">
+                <a routerLink="servicios/{{item.slug}}"><p>{{item.translation}}</p></a>
+                
+                <ul class="ul-edicion" *ngIf="item.subMenu !== undefined && item.subMenu.length > 0"  routerLinkActive="worker-names" >
+                    <li  *ngFor="let subMenu of item.subMenu;" routerLinkActive="worker-names-current">
+                        <a routerLink="servicios/{{item.slug}}/{{subMenu.slug}}"><p>{{subMenu.translation}}</p></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>  -->
+        <ul class="menu-list" routerLinkActive="active-work">
+            <li [ngClass]="{'sub-menu': item.subMenu !== undefined && item.subMenu.length > 0}" *ngFor="let item of menu[0].subMenu; let i = index">
+                <a routerLink="servicios/{{item.slug}}">
+                    <p class="btn-nav" routerLinkActive="active-link">{{item.translation}}</p>
+                </a>                
+                <ul class="ul-edicion" *ngIf="item.subMenu !== undefined && item.subMenu.length > 0"  routerLinkActive="worker-names" >
+                    <li  *ngFor="let subMenu of item.subMenu;">
+                        <a routerLink="servicios/{{item.slug}}/{{subMenu.slug}}">
+                            <p class="btn-nav" routerLinkActive="active-link">{{subMenu.translation}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul> 
+    </div>
+    <div class="redes d-none d-md-block">
+        <a routerLink="contacto" >
+            <p>{{contactName}}</p>
+        </a>
+        <!-- <div (click)="test()"> <p style="margin-top: 10px">EN/ESP</p> <p style="margin-top: 10px">EN/ESP</p></div> -->
+        <ul class="lang-items">
+            <li><div (click)="changeLanguageFooter('en')">En/</div></li>
+            <li ><div (click)="changeLanguageFooter('es')">Esp</div></li>
+            
+        </ul>
+        <ul class="sm-items">
+            <li>
+                <div class="insta">
+                    <a href="" target="_blank">
+                        <img src="assets/img/insta.png" alt="Instagram Dorado"/>
+                    </a>                    
+                </div>
+            </li>
+            <li>
+                <div class="vimeo">
+                    <a href="" target="_blank">
+                        <img src="assets/img/in.png" alt="Linkedin Dorado"/>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="in">
+                    <a href="" target="_blank">
+                        <img src="assets/img/vimeo.png" alt="Vimeo Dorado"/>
+                    </a>                    
+                </div>
+            </li>            
+        </ul>
+    </div>
+</div>

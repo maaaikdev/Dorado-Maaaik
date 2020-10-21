@@ -1,0 +1,85 @@
+/* You can add global styles to this file, and also import other style files */
+.contenedor-principal {
+    background: url(../src/assets/img/bg.jpg);
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+}
+.contenido {
+    width: 100%;
+    padding: 3% 10%;
+    z-index: 10;
+    @media(max-width:768px){
+        padding: 0 24px;
+    }
+}
+h1, h2{
+    color:#866747;
+    font-family:futuralight;
+    font-size:20px;
+    font-weight:400;
+}
+p{    
+    font-family:futuralight;
+    font-size:16px;
+    font-weight:400;
+}
+
+.menu-list.open-menu.active-work{
+    overflow: visible;
+    height: auto;
+}
+.sub-menu .ul-edicion.worker-names{
+    overflow: visible;
+    height: auto;
+    &.active-link{
+        font-family: 'futuraextra_black';
+        color: #000;
+    }
+}
+
+// .active-link p, .active-link{
+//     font-family: 'futuraextra_black';
+// }
+// .menu p {
+//     color:#96816C;
+//     &.active-link{
+//         font-family: 'futuraextra_black';
+//         color: #000;
+//     }
+// }
+.menu-list {
+    li {
+        a {
+            &:hover {
+                text-decoration: none;                
+            }
+            .btn-nav {
+                color:#96816C;
+                font-size: 14px;
+                @media(min-width:1720px){
+                    font-size: 16px;
+                }
+                &:hover {
+                    opacity: .7;
+                }
+                &.active-link{
+                    font-family: 'futuraextra_black';
+                }
+            }
+        }
+    }
+}
+@media(max-width: 1220px){
+    .menu-list.open-menu.active-work{
+        overflow: hidden;
+        height: auto;
+    }
+}
+
+@media(max-width: 992px){
+
+}
+@media(max-width: 768px){
+
+}

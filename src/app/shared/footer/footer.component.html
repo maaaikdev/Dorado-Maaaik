@@ -1,0 +1,42 @@
+<div class="footer">		
+    <div class="redes d-block d-md-none">
+        <a routerLink="contacto">
+            <p>{{contactName}}</p>
+        </a>
+        <!-- <div (click)="test()"> <p style="margin-top: 10px">EN/ESP</p> <p style="margin-top: 10px">EN/ESP</p></div> -->
+        <ul class="lang-items">
+            <li>
+                <div (click)="changeLanguageFooter('en')">En/</div>
+            </li>
+            <li >
+                <div (click)="changeLanguageFooter('es')">Esp</div>
+            </li>            
+        </ul>
+        <ul class="sm-items">
+            <li>
+                <div class="insta">
+                    <a href="" target="_blank">
+                        <img src="assets/img/insta.png" alt="Instagram Dorado"/>
+                    </a>                    
+                </div>
+            </li>
+            <li>
+                <div class="vimeo">
+                    <a href="" target="_blank">
+                        <img src="assets/img/in.png" alt="Linkedin Dorado"/>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="in">
+                    <a href="" target="_blank">
+                        <img src="assets/img/vimeo.png" alt="Vimeo Dorado"/>
+                    </a>                    
+                </div>
+            </li>            
+        </ul>
+    </div>
+    <div class="copyright">
+        <p class="p-footer">Copyright © 2020 Dorado. Inc</p>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.contenido{
+	width: 100%;
+}
+.bg-table {
+	min-height: calc(100vh - 85px);
+	.h-100-vh {
+		position: absolute;
+		box-sizing: border-box;
+		transform: translate(-50%, -50%);
+		top: 50%;
+		left: 43%;
+		width: 100%;
+		.logo{
+			width:250px;
+			margin: 0 auto;
+			display: block;
+			transform: scale(0.9);
+			transition: 1.5s all;
+			@media(min-width:1720px){
+				width:300px;
+			}
+		}
+	}
+}
+

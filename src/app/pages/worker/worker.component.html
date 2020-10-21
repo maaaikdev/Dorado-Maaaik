@@ -1,0 +1,48 @@
+<!-- <h1 *ngIf="worker.name != null && worker.name != undefined" class="nombre-editor">{{worker.name}} / {{worker.position}}</h1> -->
+<!-- <p class="descripcion-editor">{{worker.about}}</p>
+<div class="contenedor-videos">
+    <div *ngFor="let proyect of proyectos; let i = index"  class="item-video">					     
+        <a  href="#headerPopup" target="_blank" class="headerVideoLink popup-modal">
+            <div class="portada-item" style="background-image: url({{proyect.project_id.photo.data.full_url}})"></div>
+        </a>
+        <div id="headerPopup" class="mfp-hide embed-responsive embed-responsive-21by9">
+            <iframe class="embed-responsive-item" width="854" height="480" [src]="proyect.project_id.vimeo | safe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div *ngFor="let proyect of proyectos; let i = index"  class="item-video">					     
+        <a>
+            <div class="portada-item" style="background-image: url({{proyect.project_id.photo.data.full_url}})" (click)="showVideo(proyect.project_id.vimeo)"></div>
+        </a>
+    </div>
+
+   <div *ngFor="let proyect of proyectos; let i = index"  class="item-video">					     
+        <a>
+            <div class="portada-item" style="background-image: url({{proyect.thumbnail.url}})" (click)="showVideo2(i)"></div>
+        </a>
+    </div>
+
+</div> -->
+
+
+<div class="worker">
+    <div class="row">
+        <div class="col-12">
+            <h2 *ngIf="worker.name != null && worker.name != undefined">{{worker.name}} / {{worker.position}}</h2>
+            <p>{{worker.about}}</p>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-4" *ngFor="let proyect of proyectos; let i = index">            
+            <a (click)="showVideo2(i)">                
+                <div class="portada-item" id="portada{{i}}">
+                    <img src="{{proyect.thumbnail.url}}" alt=" {{proyect.project_id.name}} "/>
+                    <div class="overlay-hover" >
+                        <h4>{{proyect.project_id.name}} </h4>
+                        <img src="assets/img/workers/play_circle_filled.svg" alt="Play video" />
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

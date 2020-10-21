@@ -1,0 +1,52 @@
+<!-- servicios con workers -->
+
+<div *ngIf = "service != undefined && service.workers != undefined && service.workers.length > 0">
+    <div  *ngFor="let w of service.workers" class="item-video">
+        <div class="row">
+            <div class="col-12">
+                <a routerLink="/servicios/{{service.slug}}/{{w.worker_id.slug}}">
+                    <h2>{{w.worker_id.name}}</h2>
+                </a>
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4" *ngFor="let pr of w.worker_id.projects | slice:0:3">
+                <a routerLink="/servicios/{{service.slug}}/{{w.worker_id.slug}}"  >
+                    <div class="portada-item">
+                        <img src="{{pr.thumbnail.url}}" alt=" {{pr.name}} "/>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+<!-- Caso online y animacion (servicios sin workers) -->
+
+<div *ngIf="service != undefined  && service.workers.length == 0" class="online-animation">
+    <div class="row">
+        <div class="col-12">
+            <h2>{{service.name}}</h2>
+            <p class="descripcion-editor">{{about}}</p>
+            <div *ngIf = "service.reel != undefined && service.reel != null">
+                <div class="video_reel">
+                    <iframe width="838" height="470" [src]="service.reel | safe"  frameborder="0"></iframe>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<!-- <div *ngIf = "service != undefined  && service.workers.length == 0">
+
+<p class="nombre-editor">{{service.name}}</p>
+<p class="descripcion-editor">{{about}}</p>
+<div *ngIf = "service.reel != undefined && service.reel != null">
+    <div class="video_reel">
+        <iframe width="838" height="470" [src]="service.reel | safe"  frameborder="0"></iframe>
+    </div>
+</div>
+
+
+</div> -->

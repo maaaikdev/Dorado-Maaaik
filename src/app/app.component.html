@@ -1,0 +1,20 @@
+<section class="contenedor-principal">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-2" [ngClass]="this.urlCurrently === '/' ? 'align-self-center' : ''">
+                <app-header></app-header>       
+            </div>
+            <div class="col-12 col-md-10">
+                <div class="contenido">
+                    <!-- <app-home></app-home> -->
+                    <!-- <app-worker></app-worker> -->
+                    <!-- <app-service></app-service> -->
+                    <router-outlet></router-outlet>
+                </div> 
+            </div>
+            <div class="col-12">
+                <app-footer></app-footer>
+            </div>
+        </div>
+    </div>
+</section>
