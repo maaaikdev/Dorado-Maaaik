@@ -613,7 +613,7 @@ iframe.wait-autoplay {
     right: 24%;
   }
 }
-@media(max-width:768px){
+@media(max-width:767px){
   .glightbox-clean .gclose,
   .glightbox-modern .gclose {
     top: 25%;

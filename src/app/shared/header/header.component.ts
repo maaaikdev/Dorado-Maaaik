@@ -52,10 +52,10 @@ export class HeaderComponent implements OnInit {
           this.urlCurrently = event.url;
           console.log("Url actual", this.urlCurrently )       
           if (event.url === '/') { 
-           this.isHome = true;          
-
+           this.isHome = true;
            setTimeout(function(){ $(".logo").css({"opacity":"1","transform":"scale(1)"});  }, 500);
-
+            $(".menu").addClass("menu-tablet");
+            $(".contenedor-menu").addClass("home");
           } 
           else 
             { 
@@ -138,10 +138,10 @@ export class HeaderComponent implements OnInit {
 
         sub.subMenu = subMenu2;
       })
-      console.log("subMenu", subMenu)
-      if(this.urlCurrently == '/servicios/edicion/julian-rivera-contreras'){
-        $("#btn00").addClass("active-link");
-      }
+      // console.log("subMenu", subMenu)
+      // if(this.urlCurrently == '/servicios/edicion/julian-rivera-contreras'){
+      //   $("#btn00").addClass("active-link");
+      // }
 
       raizMenu.subMenu = subMenu;
       this.menu.push(raizMenu);

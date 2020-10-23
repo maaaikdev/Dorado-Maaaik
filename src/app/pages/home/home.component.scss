@@ -3,6 +3,12 @@
 }
 .bg-table {
 	min-height: calc(100vh - 85px);
+	@media(max-width:767px){
+		min-height: calc(68vh - 85px);
+	}
+	@media screen and (min-width: 768px) and (max-width: 1199px){
+		min-height: calc(85vh - 85px);
+	}
 	.h-100-vh {
 		position: absolute;
 		box-sizing: border-box;
@@ -10,14 +16,28 @@
 		top: 50%;
 		left: 43%;
 		width: 100%;
+		@media(max-width:767px){
+			left: 50%;
+		}
+		@media screen and (min-width: 768px) and (max-width: 1199px){
+            left: 50%;
+        }
 		.logo{
 			width:250px;
 			margin: 0 auto;
 			display: block;
 			transform: scale(0.9);
 			transition: 1.5s all;
+			@media(max-width:767px){
+				width: 140px;
+				height: 130px;
+			}
 			@media(min-width:1720px){
 				width:300px;
+			}
+			@media screen and (min-width: 768px) and (max-width: 1199px){
+				width:220px;
+				margin-top: 70px;
 			}
 		}
 	}

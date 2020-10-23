@@ -2,23 +2,39 @@
 .contenedor-menu {
     display: flex;
     flex-direction: column;
-    @media(max-width:768px){
+    height: 90vh;
+    @media(max-width:767px){
         flex-direction: row;
+        height: inherit;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1199px){
+        flex-direction: row;
+        height: initial;
+    }
+    &.home {
+        height: initial;
     }
     .logo-header{
-        cursor: pointer;
-        @media(max-width:768px){
+        cursor: pointer;        
+        @media(max-width:767px){
             margin-right: auto;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1199px){
+            width: 32%;
+            height: 130px;
         }
         img {
             width: 160px;
             display: block;
             margin: 32px auto;
-            @media(max-width:768px){
+            @media(max-width:767px){
                 width: 100px;
                 display: initial;
                 margin: initial;
                 padding: 24px 0 0;
+            }
+            @media screen and (min-width: 768px) and (max-width: 1199px){
+                margin:16px auto 0;
             }
         }
     }
@@ -27,14 +43,26 @@
         z-index: 1;
         padding: 0 26px;
         margin-bottom: 32px;
-        @media(max-width:768px){
+        @media(max-width:767px){
             width: 100%;
             z-index: 1;
             padding: 40px 0 0 0;
             margin-bottom: 0;
         }
+        @media screen and (min-width: 768px) and (max-width: 1199px){
+            width: 100%;
+            z-index: 1;
+            padding: 40px 16px 0 0;
+            margin-bottom: 0;
+        }
         @media(min-width:1720px){
-            padding: 26% 0px 0 26px;
+            padding: 6% 0px 0 26px;
+        }
+        &.menu-tablet {
+            @media screen and (min-width: 768px) and (max-width: 1199px){
+                padding: 40px 32px 0 0;
+                position: absolute;
+            }
         }
         .hamburger{
             position:relative;
@@ -54,7 +82,11 @@
             -ms-user-select:none;
             user-select:none;
             float:left;
-            @media(max-width:768px){
+            @media(max-width:767px){
+                float: right;
+                margin-right: 26px;
+            }
+            @media screen and (min-width: 768px) and (max-width: 1199px){
                 float: right;
                 margin-right: 26px;
             }
@@ -110,9 +142,14 @@
             opacity: 0;
             &.p-menu-open{
                 opacity: 1;
-                @media(max-width:768px){
+                @media(max-width:767px){
                     transition: all 0.25s ease;
                     transform: translateX(-30px);
+                }
+                @media screen and (min-width: 768px) and (max-width: 1199px){
+                    transition: all 0.25s ease;
+                    transform: translateX(-53px);
+                    float: right;
                 }
             }            
         }
@@ -135,10 +172,17 @@
                 overflow: visible;
                 height: auto;
                 width: 100%;
-                @media(max-width:768px){
+                @media(max-width:767px){
                     transition: all 0.25s ease;
                     transform: translateX(-30px);
                     width: 115%;
+                }
+                @media screen and (min-width: 768px) and (max-width: 1199px){
+                    transition: all 0.25s ease;
+                    transform: translateX(170px);
+                    float: right;
+                    width: initial;
+                    margin-top: 28px;
                 }
             }
             li{
@@ -152,7 +196,7 @@
 
                 }
                 ul {
-                    @media(max-width:768px){
+                    @media(max-width:767px){
                         padding-inline-start: 10px;
                     }
                 }
@@ -163,7 +207,9 @@
         font-size: 18px;
 	    font-family: 'futuralight';
         color: #997752;
-        padding: 0 24px;        
+        padding: 0 24px;
+        position: absolute;
+        bottom: 0;
         a {
             p {
                 text-transform: uppercase;

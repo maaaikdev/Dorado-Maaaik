@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  urlCurrently:any;
+  constructor(
+    private router:Router
+  ) { 
+    this.router.events.subscribe(event => {        
+      if (event instanceof NavigationEnd ) {   
+        this.urlCurrently = event.url;
+        console.log("Url home", this.urlCurrently)
+        if(this.urlCurrently == '/'){
+          $(".hamburger").removeClass("is-active");
+          $(".p-menu").removeClass("p-menu-open");
+          $(".menu-list").removeClass("open-menu");
+        }
+      }
+    });
+  }
 
   ngOnInit(): void {
+
   }
 
 }
