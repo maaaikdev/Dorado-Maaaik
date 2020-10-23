@@ -94,20 +94,32 @@ export class HeaderComponent implements OnInit {
 
   
 
-  getSharedInfo(){
-    return this.sharedService.getSharedInfo().toPromise().then(res => {      
-      this.sharedInfo = res.data[0];      
-      this.translationShared = this.sharedInfo.translations.find(t=> t.language == this.chosenLang);
-      this.serviceTitle = this.translationShared.service;
-      this.contactName = this.translationShared.contact;      
-    });    
 
+
+  getSharedInfo(){
+  
+    this.sharedService.getSharedInfo().subscribe((res :any)=> {
+      this.sharedInfo = res.data[0];
+
+      this.translation = this.sharedInfo.translations.find(t=> t.language == this.chosenLang);
+      this.contactName = this.translation.contact;
+      this.serviceTitle = this.translationShared.service;
+    },
+    (error)=>{}
+    )
   }
 
   getWorkers(){
   
-  return  this.workerService.getAllWorkers().toPromise().then(res=>
-    this.allWorkers = res.data);
+  this.workerService.getAllWorkers().subscribe((res:any)=> {
+    this.allWorkers = res.data
+
+  },
+  (error)=>{}
+  )
+  
+    
+    
 
   }
 
