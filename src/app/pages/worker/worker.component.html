@@ -34,7 +34,16 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-4 col-lg-4 col-xl-4" *ngFor="let proyect of proyectos; let i = index">            
-            <a (click)="showVideo2(i)">                
+            <a (click)="showVideo2(i)">
+                <!-- <div class="head-video" id="headVideo">
+                    <div class="img-logo">
+                        <img src="assets/img/workers/logo-dorado-videos.jpg" alt="Logo Dorado"/>
+                    </div>
+                    <div class="txt-logo">
+                        <p>DORADO | {{proyect.project_id.photo_text}} </p>
+                        <p class="tv">de <a href="https://vimeo.com/doradotv" target="_blank">Dorado.tv</a></p>
+                    </div>                    
+                </div> -->
                 <div class="portada-item" id="portada{{i}}">
                     <img src="{{proyect.thumbnail.url}}" alt=" {{proyect.project_id.name}} "/>
                     <div class="overlay-hover" >

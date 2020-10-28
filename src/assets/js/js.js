@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 	var width=$(document).width();
 
-	if(width<756){
+	if(width<1199){
 	    // var swiper = new Swiper('.swiper-container', {
 	    //   slidesPerView: 2,
 	    //   spaceBetween: 30,
@@ -19,15 +19,19 @@ $(document).ready(function(){
 	    //     el: '.swiper-pagination',
 	    //     clickable: true,
 	    //   },
-	    // });
+		// });
+		$('.btn-nav').click(function() {
+			$('.menu').toggleClass('menu-mobile');
+		});
     	$('.hamburger').click(function() {
 			$('.hamburger').toggleClass('is-active');
+			$('.menu').toggleClass('menu-mobile');
 			$('.menu-list').toggleClass('open-menu');
 			$('.p-menu').toggleClass('p-menu-open');
 			$('.contenido').toggleClass('p-menu-open-r');
 			
 			return false;
-		});
+		});		
 
 
 

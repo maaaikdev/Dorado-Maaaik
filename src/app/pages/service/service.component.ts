@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
 import { of, combineLatest } from 'rxjs'; 
 import Lity from 'lity';
 
+declare var $: any;
+
 
 @Component({
   selector: 'app-service',
@@ -40,18 +42,36 @@ export class ServiceComponent implements OnInit {
   ngOnInit(): void {
 
     const joinStream = combineLatest( this.route.params, this.route.queryParams
-      );
-     
+      );     
      
 	    // Subscribe to the single observable, giving us both
 	    joinStream.subscribe(routeParams => {
 	    // routeParams containing both the query and route params
       this.chosenLang  = getLanguage();
-      this.getService(routeParams[0].slugService);
-     
-    
-	    });
+      this.getService(routeParams[0].slugService);        
+      });
+  }
 
+  hover(x, v){
+    const hov = $('#reel' + x + '' + v);
+    if(hov[0].id == 'reel00' || hov[0].id == 'reel01' || hov[0].id == 'reel02') {
+        $('#reel00, #reel01, #reel02').addClass('hover');
+    } else if (hov[0].id == 'reel10' || hov[0].id == 'reel11' || hov[0].id == 'reel12'){
+      $('#reel10, #reel11, #reel12').addClass('hover');
+    } else {
+      $('#reel20, #reel21, #reel22').addClass('hover');
+    }
+  }
+
+  hoverOut(x, v){
+    const hov = $('#reel' + x + '' + v);
+    if(hov[0].id == 'reel00' || hov[0].id == 'reel01' || hov[0].id == 'reel02') {
+        $('#reel00, #reel01, #reel02').removeClass('hover');
+    } else if (hov[0].id == 'reel10' || hov[0].id == 'reel11' || hov[0].id == 'reel12'){
+      $('#reel10, #reel11, #reel12').removeClass('hover');
+    } else {
+      $('#reel20, #reel21, #reel22').removeClass('hover');
+    }
   }
 
 
@@ -60,7 +80,7 @@ export class ServiceComponent implements OnInit {
   
       this.servicesService.getService(slug).subscribe((data=> {
         
-        this.service = data.data[0];
+        this.service = data.data[0];        
 
         let translation = this.service.translations.find(t=> t.language == this.chosenLang);
     
@@ -72,12 +92,12 @@ export class ServiceComponent implements OnInit {
 
 
           for(let  w of this.service.workers){
+            console.log("Service", this.service.workers)
             let index = 0;
             for(let  p of w.worker_id.projects){
               let thumbnails = p.project_id.photo.data.thumbnails;
               let thumbnail = thumbnails.find(t=>t.key === 'directus-large-contain');
-              w.worker_id.projects[index].thumbnail = thumbnail;
-
+              w.worker_id.projects[index].thumbnail = thumbnail;              
               index++;
           
             }

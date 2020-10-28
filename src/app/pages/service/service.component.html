@@ -1,7 +1,7 @@
 <!-- servicios con workers -->
 
 <div *ngIf = "service != undefined && service.workers != undefined && service.workers.length > 0">
-    <div  *ngFor="let w of service.workers" class="item-video">
+    <div  *ngFor="let w of service.workers; let x = index" class="item-video">
         <div class="row">
             <div class="col-12">
                 <a routerLink="/servicios/{{service.slug}}/{{w.worker_id.slug}}">
@@ -10,9 +10,9 @@
             </div>        
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 col-lg-4 col-xl-4" *ngFor="let pr of w.worker_id.projects | slice:0:3">
-                <a routerLink="/servicios/{{service.slug}}/{{w.worker_id.slug}}"  >
-                    <div class="portada-item">
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4" *ngFor="let pr of w.worker_id.projects | slice:0:3; let v = index">
+                <a routerLink="/servicios/{{service.slug}}/{{w.worker_id.slug}}"  (mouseover)="hover(x, v)" (mouseout)="hoverOut(x, v)">
+                    <div class="portada-item" id="reel{{x}}{{v}}">
                         <img src="{{pr.thumbnail.url}}" alt=" {{pr.name}} "/>
                     </div>
                 </a>

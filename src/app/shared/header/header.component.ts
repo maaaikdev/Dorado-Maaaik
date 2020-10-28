@@ -45,22 +45,26 @@ export class HeaderComponent implements OnInit {
     private workerService: WorkersService,
     private menuService:MenuService,
     @Inject(DOCUMENT) private _document: Document
-    ) { 
-
+    ) {       
       this.router.events.subscribe(event => {        
         if (event instanceof NavigationEnd ) {   
-          this.urlCurrently = event.url;
-          console.log("Url actual", this.urlCurrently )       
+          this.urlCurrently = event.url;      
           if (event.url === '/') { 
            this.isHome = true;
            setTimeout(function(){ $(".logo").css({"opacity":"1","transform":"scale(1)"});  }, 500);
             $(".menu").addClass("menu-tablet");
             $(".contenedor-menu").addClass("home");
           } 
-          else 
-            { 
-              this.isHome = false;
-            }
+          else { 
+            this.isHome = false;
+          }
+          if (event.url) {
+            $('.hamburger').removeClass('is-active');
+            $(".menu").removeClass("menu-mobile");
+            $('.menu-list').removeClass('open-menu');
+			      $('.p-menu').removeClass('p-menu-open');
+			      $('.contenido').removeClass('p-menu-open-r');
+          }
         }
       });
   
@@ -83,9 +87,22 @@ export class HeaderComponent implements OnInit {
       changeLanguage('es');
     } 
     this.chosenLang = l;
-    this.getSharedInfo()
+    this.getSharedInfo();    
   }
-
+  hoverBtn(){
+    // let menuAdd = $(".btn-nav")
+    // let menuEdition = $(".ul-edicion")
+    // console.log("menu ADD", menuAdd)
+    // console.log("menu", menuEdition);    
+    // if(menuAdd[0].classList[1] == 'active-link'){
+    //   menuEdition[0].classList.add("worker-names");
+    //   //menuEdition[1].classList.remove("worker-names"); 
+    // } else if (menuAdd[4].classList[1] == 'active-link'){
+    //   menuEdition[1].classList.add("worker-names");
+    //   //menuEdition[0].classList.remove("worker-names"); 
+    // }
+    // $(".ul-edicion").addClass("worker-names")
+  }
   ngOnDestroy() {
     // prevent memory leak by unsubscribing
     this.subscription.unsubscribe();
@@ -94,32 +111,20 @@ export class HeaderComponent implements OnInit {
 
   
 
-
-
   getSharedInfo(){
-  
-    this.sharedService.getSharedInfo().subscribe((res :any)=> {
-      this.sharedInfo = res.data[0];
-
-      this.translation = this.sharedInfo.translations.find(t=> t.language == this.chosenLang);
-      this.contactName = this.translation.contact;
+    return this.sharedService.getSharedInfo().toPromise().then(res => {      
+      this.sharedInfo = res.data[0];      
+      this.translationShared = this.sharedInfo.translations.find(t=> t.language == this.chosenLang);
       this.serviceTitle = this.translationShared.service;
-    },
-    (error)=>{}
-    )
+      this.contactName = this.translationShared.contact;      
+    });    
+
   }
 
   getWorkers(){
   
-  this.workerService.getAllWorkers().subscribe((res:any)=> {
-    this.allWorkers = res.data
-
-  },
-  (error)=>{}
-  )
-  
-    
-    
+  return  this.workerService.getAllWorkers().toPromise().then(res=>
+    this.allWorkers = res.data);
 
   }
 
@@ -179,7 +184,7 @@ export class HeaderComponent implements OnInit {
 
       // })
 
-      console.log(this.menu)   
+      console.log("Menu", this.menu)   
       //  console.log(this.worker);
     }),
     error => console.log(error));    

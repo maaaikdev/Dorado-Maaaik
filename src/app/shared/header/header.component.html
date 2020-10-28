@@ -4,8 +4,8 @@
     <div class="logo-header" *ngIf="!isHome" routerLink="/">
         <img src="assets/img/isologo.png" alt="Logo Dorado"/>
     </div>
-    <div class="menu">
-        <div class="hamburger">
+    <div class="menu" [ngClass]="this.urlCurrently === '/' ? 'menu-desktop' : ''">
+        <div class="hamburger" >
             <div class="_layer -top"></div>
             <div class="_layer -mid"></div>
             <div class="_layer -bottom"></div>			
@@ -45,16 +45,9 @@
         </ul>  -->
         <ul class="menu-list" routerLinkActive="active-work">
             <li [ngClass]="{'sub-menu': item.subMenu !== undefined && item.subMenu.length > 0}" *ngFor="let item of menu[0].subMenu; let i = index">
-                <div *ngIf="item.subMenu !== undefined && item.subMenu.length === 1">
-                    <a routerLink="servicios/{{item.slug}}/{{item.subMenu[0].slug}}">
-                        <p class="btn-nav" routerLinkActive="active-link">{{item.translation}}</p>
-                    </a> 
-                </div>
-                <div *ngIf="item.subMenu !== undefined && item.subMenu.length !== 1">
-                    <a routerLink="servicios/{{item.slug}}">
-                        <p class="btn-nav" routerLinkActive="active-link">{{item.translation}}</p>
-                    </a> 
-                </div>
+                <a routerLink="servicios/{{item.slug}}" >
+                    <p class="btn-nav" routerLinkActive="active-link">{{item.translation}}</p>
+                </a>                
                 <ul class="ul-edicion" *ngIf="item.subMenu !== undefined && item.subMenu.length > 0"  routerLinkActive="worker-names" >
                     <li  *ngFor="let subMenu of item.subMenu;">
                         <a routerLink="servicios/{{item.slug}}/{{subMenu.slug}}">
@@ -78,21 +71,21 @@
         <ul class="sm-items">
             <li>
                 <div class="insta">
-                    <a href="{{sharedInfo.instagram}}" target="_blank">
+                    <a href="" target="_blank">
                         <img src="assets/img/insta.png" alt="Instagram Dorado"/>
                     </a>                    
                 </div>
             </li>
             <li>
-                <div class="in">
-                    <a href="{{sharedInfo.linkedin}}" target="_blank">
+                <div class="vimeo">
+                    <a href="" target="_blank">
                         <img src="assets/img/in.png" alt="Linkedin Dorado"/>
                     </a>
                 </div>
             </li>
             <li>
-                <div class="vimeo">
-                    <a href="{{sharedInfo.vimeo}}" target="_blank">
+                <div class="in">
+                    <a href="" target="_blank">
                         <img src="assets/img/vimeo.png" alt="Vimeo Dorado"/>
                     </a>                    
                 </div>

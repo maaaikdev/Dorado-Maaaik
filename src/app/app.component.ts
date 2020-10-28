@@ -49,9 +49,8 @@ export class AppComponent {
 
 
   getHomeBg(isHome){
-    this.home = 
+    // this.home = 
     this.homeService.getHomeInfo().subscribe((res :any[])=> {
-      console.log(res);
       this.home = res;
       this.bg1 =  this.home.data[0].background.data.full_url;
       this.bg2 = this.home.data[0].background.data.full_url;

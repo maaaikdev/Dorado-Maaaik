@@ -7,10 +7,13 @@
 }
 .contenido {
     width: 100%;
-    padding: 3% 10%;
+    padding: 5% 10%;
     z-index: 10;
+    margin-bottom: 50px;
+    height: 90vh;
     @media(max-width:767px){
         padding: 0 24px;
+        height: inherit;
     }
     @media screen and (min-width: 768px) and (max-width: 1199px){
         padding: 3% 6%;

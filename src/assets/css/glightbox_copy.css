@@ -197,6 +197,7 @@
   width: 100vh;
   max-width: 100vh;
   width: 100% !important;
+  border: 8px #96816C solid;
 }
 
 .gslide-video .gvideo-wrapper {
@@ -204,6 +205,7 @@
         /* max-width: 160vmin; */
   margin: auto;
 }
+
 
 .gslide-video::before {
   content: '';
@@ -457,7 +459,7 @@
   height: 44px;
   display: block;
   background-position: 0 0;
-  border: none;
+  border: none;  
 }
 
 .gprev svg,
@@ -497,12 +499,22 @@ iframe.wait-autoplay {
 
 .glightbox-clean .gslide-description,
 .glightbox-modern .gslide-description {
-  background: #fff;
+  /* background: #fff; */
+  position: relative;
+  z-index: 1000;
+  top: -506px;
+  left: 8px;
+  background: url(../img/workers/logo-dorado-videos.jpg);
+  background-position-x: left;
+  background-repeat: no-repeat;
+  padding: 18px 0;
 }
 
 .glightbox-clean .gdesc-inner,
 .glightbox-modern .gdesc-inner {
-  padding: 22px 20px;
+  /* padding: 18px 20px; */
+  margin-left: 58px;
+  margin-top: -18px;
 }
 
 .glightbox-clean .gslide-title,
@@ -510,9 +522,13 @@ iframe.wait-autoplay {
   font-size: 1em;
   font-weight: normal;
   font-family: arial;
-  color: #000;
-  margin-bottom: 19px;
+  /* color: #000; */
+  color: #fff;
+  margin-bottom: 0;
   line-height: 1.4em;
+  display: inline-block;
+  padding: 9px;
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .glightbox-clean .gslide-desc,
@@ -559,7 +575,7 @@ iframe.wait-autoplay {
 .glightbox-modern .gprev path,
 .glightbox-modern .gnext path,
 .glightbox-modern .gclose path {
-  fill: #fff;
+  fill: #997752;
 }
 
 .glightbox-clean button:focus:not(.focused):not(.disabled),
@@ -571,29 +587,53 @@ iframe.wait-autoplay {
 .glightbox-modern .gprev {
   position: absolute;
   top: -100%;
-  left: 30px;
-  width: 40px;
-  height: 56px;
+  left: 8%;
+  width: 60px;
+}
+@media(min-width:1720px){
+  .glightbox-clean .gprev,
+  .glightbox-modern .gprev {
+    left: 23%;
+  }
 }
 
 .glightbox-clean .gnext,
 .glightbox-modern .gnext {
   position: absolute;
   top: -100%;
-  right: 30px;
-  width: 40px;
-  height: 56px;
+  right: 8%;
+  width: 60px;
+}
+@media(min-width:1720px){
+  .glightbox-clean .gnext,
+  .glightbox-modern .gnext {
+    right: 23%;
+  }
 }
 
 .glightbox-clean .gclose,
 .glightbox-modern .gclose {
   width: 35px;
-  height: 35px;
-  top: 15px;
-  right: 10px;
+  height: 35px;  
+  top: 2%;
+  right: 12%;
   position: absolute;
   opacity: .7;
   background-position: -59px 2px;
+}
+@media(min-width:1720px){
+  .glightbox-clean .gclose,
+  .glightbox-modern .gclose {
+    top: 17%;
+    right: 24%;
+  }
+}
+@media(max-width:767px){
+  .glightbox-clean .gclose,
+  .glightbox-modern .gclose {
+    top: 25%;
+    right: 0%;
+  }
 }
 
 .glightbox-clean .gclose svg,
@@ -957,8 +997,14 @@ iframe.wait-autoplay {
 
 @media (min-width: 992px) {
   .glightbox-clean .gclose,
-.glightbox-modern .gclose {
-    right: 20px;
+  .glightbox-modern .gclose {
+    right: 11%;
+  }
+}
+@media(min-width:1720px){
+  .glightbox-clean .gclose,
+  .glightbox-modern .gclose {
+    right: 24%;
   }
 }
 

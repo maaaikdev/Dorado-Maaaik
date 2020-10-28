@@ -2435,8 +2435,8 @@
         }
 
         addClass(body, 'glightbox-open');
-
         addClass(html, 'glightbox-open');
+        
 
         if (isMobile$1) {
           addClass(document.body, 'glightbox-mobile');

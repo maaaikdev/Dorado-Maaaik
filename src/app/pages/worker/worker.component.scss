@@ -12,10 +12,35 @@
         color:#96816C;
         line-height: 20px;
     }
-    
+    .head-video {
+        display: flex;
+        .img-logo {
+            img {
+                width: 60px;
+            }
+        }
+        .txt-logo {
+            background-color: rgba(0,0,0, .5);
+            padding: 8px 8px 8px 16px;
+            p {
+                color: #00adef;
+                display: block;
+                margin: 0;
+            }
+            .tv {
+                color: #fff;
+                font-size: 13px;
+                display: block;
+                margin: 0;
+                a {
+                    color: #00adef;
+                }
+            }
+        }        
+    }
     .portada-item {
         width: 100%;
-        height: 120px;
+        height: 100px;
         overflow: hidden;
         cursor: pointer;
         transition: all 0s ease;
@@ -58,7 +83,7 @@
                 transform: translateY(0);
                 opacity: 1;
                 background-color: rgba($color: #000000, $alpha: 0.8);
-                padding-top:40px;
+                padding-top:26px;
                 @media(min-width:1720px){
                     padding-top: 65px;
                 }                

@@ -55,7 +55,7 @@
         @media(min-width:1720px){
             height: 170px;
         }
-        &:hover {
+        &.hover {
             // filter: grayscale(100%) sepia(1) brightness(100%) contrast(100%);
             // -webkit-filter: grayscale(100%) sepia(1) brightness(100%) contrast(100%);
             filter: grayscale(100%);

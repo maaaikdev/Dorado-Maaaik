@@ -26,7 +26,7 @@
         img {
             width: 160px;
             display: block;
-            margin: 32px auto;
+            margin: 13px auto 40px;
             @media(max-width:767px){
                 width: 100px;
                 display: initial;
@@ -43,25 +43,50 @@
         z-index: 1;
         padding: 0 26px;
         margin-bottom: 32px;
+        margin-top: -54px;
         @media(max-width:767px){
             width: 100%;
             z-index: 1;
             padding: 40px 0 0 0;
             margin-bottom: 0;
+            margin-top: 0;
         }
         @media screen and (min-width: 768px) and (max-width: 1199px){
             width: 100%;
             z-index: 1;
-            padding: 40px 16px 0 0;
+            padding: 40px 26px 0 0;
             margin-bottom: 0;
+            margin-top: 0;
         }
         @media(min-width:1720px){
             padding: 6% 0px 0 26px;
+            margin-top: initial;
+        }
+        &.menu-desktop {
+            margin-top: 70px;
+            @media(max-width:767px){
+                margin-top: initial;
+            }
+            @media screen and (min-width: 768px) and (max-width: 1199px){
+                margin-top: initial;
+            }
+            @media(min-width:1720px){
+                margin-top: 70px;
+            }
         }
         &.menu-tablet {
             @media screen and (min-width: 768px) and (max-width: 1199px){
                 padding: 40px 32px 0 0;
                 position: absolute;
+            }
+        }
+        &.menu-mobile {
+            @media(max-width:768px){
+                height: 100vh;
+                position: absolute;
+                background-color: #000;
+                padding-left: 24px;
+                padding-right: 24px;
             }
         }
         .hamburger{
@@ -84,7 +109,7 @@
             float:left;
             @media(max-width:767px){
                 float: right;
-                margin-right: 26px;
+                margin-right: 24px;
             }
             @media screen and (min-width: 768px) and (max-width: 1199px){
                 float: right;
@@ -175,7 +200,7 @@
                 @media(max-width:767px){
                     transition: all 0.25s ease;
                     transform: translateX(-30px);
-                    width: 115%;
+                    width: 100%;
                 }
                 @media screen and (min-width: 768px) and (max-width: 1199px){
                     transition: all 0.25s ease;
@@ -210,6 +235,18 @@
         padding: 0 24px;
         position: absolute;
         bottom: 0;
+        @media(max-width:767px){
+            margin-top: initial;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1199px){
+            margin-top: initial;
+        }
+        @media(min-width:1720px){
+            bottom: -12px;
+        }
+        &.redes-home {
+            bottom: 130px;
+        }
         a {
             p {
                 text-transform: uppercase;
@@ -223,8 +260,9 @@
         .sm-items {
             display: flex;
             width: 100%;
+            margin-bottom: 0;
             li {
-                margin: 16px 8px;
+                margin: 16px 8px 0;
                 cursor: pointer;
                 list-style: none;
                 &:hover {

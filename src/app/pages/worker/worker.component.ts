@@ -117,38 +117,23 @@ export class WorkerComponent implements OnInit {
   showVideo2(e){    
 
     this.myGallery.openAt(e);
-    }
-
+    }    
     getWorker(slug){
   
-        this.workerService.getWorkerBySlug(slug).subscribe((data=> {
-          
+        this.workerService.getWorkerBySlug(slug).subscribe((data=> {          
           this.worker = data.data[0];
-          let translationWorker = this.worker.translations.find(t=> t.language == this.chosenLang);
-      
+          let translationWorker = this.worker.translations.find(t=> t.language == this.chosenLang);      
           this.worker.position = translationWorker.position;
           this.worker.about = translationWorker.about;
-          
-
           this.proyectos = data.data[0].projects;
-          console.log("Proyectos", this.proyectos)
-
-          this.proyectos = this.proyectos.sort((a,b)=> (a.project_id.sort_order > b.project_id.sort_order) ? 1 : -1)
-
-          
-
+          console.log("Proyectos Videos", this.proyectos)
+          this.proyectos = this.proyectos.sort((a,b)=> (a.project_id.sort_order > b.project_id.sort_order) ? 1 : -1) 
           let arr = [];
-
-         let index = 0;
-        for(let  p of this.proyectos){
-
-
-         let thumbnails = p.project_id.photo.data.thumbnails;
-
-         let thumbnail = thumbnails.find(t=>t.key === 'directus-large-contain');
-
+          let index = 0;
+        for(let  p of this.proyectos){          
+          let thumbnails = p.project_id.photo.data.thumbnails;
+          let thumbnail = thumbnails.find(t=>t.key === 'directus-large-contain');
           this.proyectos[index].thumbnail = thumbnail;
-
           let item = {
             'href': p.project_id.vimeo,
            //'href':'https://vimeo.com/426417452',
@@ -156,11 +141,9 @@ export class WorkerComponent implements OnInit {
             'type': 'video',
             'source': 'vimeo', //vimeo, youtube or local
             'width': 900,
-
+            // 'title' : p.project_id.photo_text
           }
-
-          // let item = {
-          
+          // let item = {          
           //   content: '<p><iframe width="838" height="470" [src]="https://player.vimeo.com/video/426417452"  frameborder="0"></iframe></p>',
           //   width: '90vw'
           // }
@@ -170,17 +153,8 @@ export class WorkerComponent implements OnInit {
           index++;
         }
         console.log(arr);
-     console.log('proeyctos')
-     console.log(this.projects)
-
         this.myGallery.setElements(arr);
-
         }),
-        error => console.log(error));
-  
-        
+        error => console.log(error));         
       }
-
-      
-
 }

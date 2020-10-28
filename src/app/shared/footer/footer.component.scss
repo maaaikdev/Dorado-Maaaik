@@ -5,6 +5,8 @@
 // }
 .footer{
     padding: 0 16px;
+    position: relative;
+    margin-top: 32px;
     @media(max-width:767px){
         padding: 0 8px;
     }
@@ -15,6 +17,7 @@
 	    font-size: 18px;
 	    font-family: 'futuralight';
         color: #997752;
+        position: relative;
         @media(max-width:767px){
             border-top:1px #5a442c solid;
             padding-top: 24px;
@@ -78,12 +81,17 @@
         }
     }
     .copyright{
-        float: right;
+        position: absolute;
+        bottom: 0;
+        right: 0;
         @media(max-width:767px){
-            float: left;
+            position: relative;
         }
         @media screen and (min-width: 768px) and (max-width: 1199px){
-            margin-top: 90px;
+            
+        }
+        @media(min-width:1720px){
+            bottom: 16px;
         }
         .p-footer{
             padding-right: 70px;
