@@ -184,7 +184,6 @@ export class HeaderComponent implements OnInit {
 
       // })
 
-      console.log("Menu", this.menu)   
       //  console.log(this.worker);
     }),
     error => console.log(error));    
