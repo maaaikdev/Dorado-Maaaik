@@ -45,9 +45,19 @@
         </ul>  -->
         <ul class="menu-list" routerLinkActive="active-work">
             <li [ngClass]="{'sub-menu': item.subMenu !== undefined && item.subMenu.length > 0}" *ngFor="let item of menu[0].subMenu; let i = index">
-                <a routerLink="servicios/{{item.slug}}" >
+                <!-- <a routerLink="servicios/{{item.slug}}" >
                     <p class="btn-nav" routerLinkActive="active-link">{{item.translation}}</p>
-                </a>                
+                </a>        -->
+                <div *ngIf="item.subMenu !== undefined && item.subMenu.length === 1">
+                    <a routerLink="servicios/{{item.slug}}/{{item.subMenu[0].slug}}">
+                        <p class="btn-nav" routerLinkActive="active-link">{{item.translation}}</p>
+                    </a> 
+                </div>
+                <div *ngIf="item.subMenu !== undefined && item.subMenu.length !== 1">
+                    <a routerLink="servicios/{{item.slug}}">
+                        <p class="btn-nav" routerLinkActive="active-link">{{item.translation}}</p>
+                    </a> 
+                </div>                    
                 <ul class="ul-edicion" *ngIf="item.subMenu !== undefined && item.subMenu.length > 0"  routerLinkActive="worker-names" >
                     <li  *ngFor="let subMenu of item.subMenu;">
                         <a routerLink="servicios/{{item.slug}}/{{subMenu.slug}}">

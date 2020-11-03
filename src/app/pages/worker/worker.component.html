@@ -34,7 +34,11 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-4 col-lg-4 col-xl-4" *ngFor="let proyect of proyectos; let i = index">            
-            <a (click)="showVideo2(i)">
+                      <!-- Se usa libreria lity mientras se activa modal -->
+                      <a (click)="showVideo(proyect.project_id.vimeo)">
+                        <!-- <a (click)="showVideo2(i)"> -->
+            
+          
                 <!-- <div class="head-video" id="headVideo">
                     <div class="img-logo">
                         <img src="assets/img/workers/logo-dorado-videos.jpg" alt="Logo Dorado"/>
