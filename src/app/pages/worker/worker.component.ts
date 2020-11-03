@@ -126,7 +126,6 @@ export class WorkerComponent implements OnInit {
           this.worker.position = translationWorker.position;
           this.worker.about = translationWorker.about;
           this.proyectos = data.data[0].projects;
-          console.log("Proyectos Videos", this.proyectos)
           this.proyectos = this.proyectos.sort((a,b)=> (a.project_id.sort_order > b.project_id.sort_order) ? 1 : -1) 
           let arr = [];
           let index = 0;
@@ -152,7 +151,6 @@ export class WorkerComponent implements OnInit {
            
           index++;
         }
-        console.log(arr);
         this.myGallery.setElements(arr);
         }),
         error => console.log(error));         

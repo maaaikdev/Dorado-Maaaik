@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
     this.router.events.subscribe(event => {        
       if (event instanceof NavigationEnd ) {   
         this.urlCurrently = event.url;
-        console.log("Url home", this.urlCurrently)
         if(this.urlCurrently == '/'){
           $(".hamburger").removeClass("is-active");
           $(".p-menu").removeClass("p-menu-open");

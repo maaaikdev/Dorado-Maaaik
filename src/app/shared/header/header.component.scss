@@ -63,7 +63,7 @@
             margin-top: initial;
         }
         &.menu-desktop {
-            margin-top: 70px;
+            margin-top: 150px;
             @media(max-width:767px){
                 margin-top: initial;
             }
@@ -71,7 +71,7 @@
                 margin-top: initial;
             }
             @media(min-width:1720px){
-                margin-top: 70px;
+                margin-top: 150px;
             }
         }
         &.menu-tablet {

@@ -2835,8 +2835,6 @@
             slide = node.getAttribute('data-index');
           }
         }
-
-        console.log("stopSlideVideo is deprecated, use slidePlayerPause");
         var player = this.getSlidePlayerInstance(slide);
 
         if (player && player.playing) {
@@ -2870,8 +2868,6 @@
             slide = node.getAttribute('data-index');
           }
         }
-
-        console.log("playSlideVideo is deprecated, use slidePlayerPlay");
         var player = this.getSlidePlayerInstance(slide);
 
         if (player && !player.playing) {

@@ -92,7 +92,6 @@ export class ServiceComponent implements OnInit {
 
 
           for(let  w of this.service.workers){
-            console.log("Service", this.service.workers)
             let index = 0;
             for(let  p of w.worker_id.projects){
               let thumbnails = p.project_id.photo.data.thumbnails;
