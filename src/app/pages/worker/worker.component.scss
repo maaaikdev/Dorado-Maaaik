@@ -40,7 +40,7 @@
     }
     .portada-item {
         width: 100%;
-        height: 100px;
+        height: 110px;
         overflow: hidden;
         cursor: pointer;
         transition: all 0s ease;
@@ -49,7 +49,7 @@
             height: 100px;
         }
         @media(min-width:1720px){
-            height: 170px;
+            height: 180px;
         }
         &:hover {
             transition: all 0.3s ease;
@@ -83,7 +83,7 @@
                 transform: translateY(0);
                 opacity: 1;
                 background-color: rgba($color: #000000, $alpha: 0.8);
-                padding-top:26px;
+                padding-top:32px;
                 @media(min-width:1720px){
                     padding-top: 65px;
                 }                

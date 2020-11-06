@@ -1,18 +1,18 @@
 <div class="contact-page">
     <div class="row">
-        <div class="col-12 col-xl-6 text-left text-md-right">
+        <div class="col-12 col-xl-6 text-left text-md-right align-self-center">
             <h2>{{translation.work_with_us_title}}</h2>
-            <p>{{translation.work_with_us}}</p>
-            <h3>{{translation.search_workers_title}}</h3>
-            <p>{{translation.search_workers}}</p>
-            <a href="{{contact.map_url}}" target="_blank" >
+            <p *ngIf="translation.work_with_us != '-'">{{translation.work_with_us}}</p>
+            <h3 *ngIf="translation.search_workers_title != '-'">{{translation.search_workers_title}}</h3>
+            <p *ngIf="translation.search_workers != '-'">{{translation.search_workers}}</p>
+            <a href="{{contact.map_url}}" target="_blank" *ngIf="contact.address != '-'">
                 {{contact.address}}
             </a>
-            <a href="tel:{{contact.phone}}">{{contact.phone}}</a>
+            <a href="tel:{{contact.phone}}" *ngIf="contact.phone != '-'">{{contact.phone}}</a>
             <a [href]="emailTxt">{{contact.email}}</a>
         </div>
         <div class="col-12 col-xl-6">
-            
+            <img src="assets/img/home/logo-dorado.png" alt="Logo Dorado" class="logo-dorado"/>
         </div>
     </div>
 </div>

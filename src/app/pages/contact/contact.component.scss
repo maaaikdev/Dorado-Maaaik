@@ -24,6 +24,14 @@
         display: block;
         margin-bottom: 16px;
     }
+    .logo-dorado {
+        width: 64%;
+        margin: 0 auto;
+        display: block;
+        @media(max-width:768px){
+            display: none;
+        }
+    }
     .col-12 {
         @media(max-width:767px){
             padding-left: 0;

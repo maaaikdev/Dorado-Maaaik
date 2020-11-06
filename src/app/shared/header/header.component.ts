@@ -37,6 +37,7 @@ export class HeaderComponent implements OnInit {
   urlCurrently:any;
   public contactName = "";
   public translation:Translation;
+  menuMobile: any;
   constructor(
     private activatedRoute: ActivatedRoute, 
     private router:Router, 
@@ -137,10 +138,11 @@ export class HeaderComponent implements OnInit {
       var raiz = this.menuItems.filter(f => f.parent === 'raiz');
       var raizMenu = raiz[0];
       let translation = raizMenu.translations.find(t=> t.language == this.chosenLang);      
-      this.serviceTitle = translation.translation;         
+      this.serviceTitle = translation.translation;  
 
       //trae el hijo
-      var subMenu =  this.menuItems.filter(f=>f.parent === raizMenu.slug);                     
+      var subMenu =  this.menuItems.filter(f=>f.parent === raizMenu.slug);  
+      console.log("Menu final", subMenu)                      
       subMenu.forEach((sub:Menu) => {
         let translationSub = sub.translations.find(t=> t.language == this.chosenLang);
         sub.translation = translationSub.translation;

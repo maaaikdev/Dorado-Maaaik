@@ -191,7 +191,7 @@ a:-webkit-any-link:active{
 	font-size: 16px;
 	text-transform: uppercase;	
 	color: #997752;
-	margin-top: 10px;	
+	margin-top: 4px;	
 	-webkit-transition:all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
 	transition:all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
 

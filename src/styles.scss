@@ -4,22 +4,31 @@
     background-size: cover;
     width: 100%;
     min-height: 100vh;
+    @media(max-width:767px){
+        padding-bottom: 60px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1199px){
+        padding-bottom: 70px;
+    }
 }
 .contenido {
     width: 100%;
-    padding: 5% 10%;
+    padding: 10% 10% 4%;
     z-index: 10;
     margin-bottom: 50px;
     height: 90vh;
     @media(max-width:767px){
         padding: 0 24px;
         height: inherit;
+        margin-bottom: 24px;
     }
     @media screen and (min-width: 768px) and (max-width: 1199px){
-        padding: 3% 6%;
+        padding: 3% 6% 0;
+        height: inherit;
+        margin-bottom: 24px;
     }
     @media(min-width:1720px){
-        padding: 6% 10% 3%;
+        padding: 8% 10% 0;
     }
 }
 h1, h2{

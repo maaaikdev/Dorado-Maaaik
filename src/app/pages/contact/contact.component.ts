@@ -59,7 +59,7 @@ export class ContactComponent implements OnInit {
       this.contact = data.data[0];
 
       this.translation = this.contact.translations.find(t=> t.language == this.chosenLang);
-    
+      console.log("Tranlation", this.translation)
 
       this.emailTxt = 'mailto:'+ this.contact.email;
       // this.latitude = parseFloat(this.contact.lat);
