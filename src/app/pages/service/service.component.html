@@ -24,7 +24,7 @@
 
 <!-- Caso online y animacion (servicios sin workers) -->
 
-<div *ngIf="service != undefined  && service.workers.length == 0" class="online-animation">
+<div *ngIf="service != undefined &&  service.workers != undefined && service.workers.length == 0" class="online-animation">
     <div class="row">
         <div class="col-12">
             <h2>{{service.name}}</h2>

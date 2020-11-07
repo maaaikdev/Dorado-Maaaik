@@ -44,11 +44,21 @@
             </li>
         </ul>  -->
         <ul class="menu-list" routerLinkActive="active-work">
-            <li [ngClass]="{'sub-menu': item.subMenu !== undefined && item.subMenu.length > 0}" *ngFor="let item of menu[0].subMenu; let i = index">
-                <a routerLink="servicios/{{item.slug}}" >
+            <li [ngClass]="{'sub-menu': item !== undefined && item.subMenu !== undefined &&   item.subMenu.length > 0}" *ngFor="let item of menu[0].subMenu; let i = index">
+                <!-- <a routerLink="servicios/{{item.slug}}" >
                     <p class="btn-nav" routerLinkActive="active-link">{{item.translation}}</p>
-                </a>                
-                <ul class="ul-edicion" *ngIf="item.subMenu !== undefined && item.subMenu.length > 0"  routerLinkActive="worker-names" >
+                </a>  -->
+                <div *ngIf="item.subMenu !== undefined && item.subMenu.length === 1">
+                    <a routerLink="servicios/{{item.slug}}/{{item.subMenu[0].slug}}">
+                        <p class="btn-nav" routerLinkActive="active-link">{{item.translation}}</p>
+                    </a> 
+                </div>
+                <div *ngIf="item.subMenu !== undefined && item.subMenu.length !== 1">
+                    <a routerLink="servicios/{{item.slug}}">
+                        <p class="btn-nav" routerLinkActive="active-link">{{item.translation}}</p>
+                    </a> 
+                </div>               
+                <ul class="ul-edicion" *ngIf="item !== undefined && item.subMenu !== undefined && item.subMenu.length > 0"  routerLinkActive="worker-names" >
                     <li  *ngFor="let subMenu of item.subMenu;">
                         <a routerLink="servicios/{{item.slug}}/{{subMenu.slug}}">
                             <p class="btn-nav" routerLinkActive="active-link">{{subMenu.translation}}</p>
@@ -106,13 +116,15 @@
     </div> -->
     <div class="menu-mobile">
         <a routerLink="servicios/{{item.slug}}" routerLinkActive="focus" *ngFor="let item of menu[0].subMenu; let i = index">
-            <img *ngIf="i == 0" src="assets/img/menu/icons-menu-02.svg" class="icon-menu"/>
+                <img *ngIf="i == 0" src="assets/img/menu/icons-menu-02.svg" class="icon-menu"/>
                 <img *ngIf="i == 1" src="assets/img/menu/icons-menu-01.svg" class="icon-menu"/>
                 <img *ngIf="i == 2" src="assets/img/menu/icons-menu-03.svg" class="icon-menu"/>
                 <img *ngIf="i == 3" src="assets/img/menu/icons-menu-04.svg" class="icon-menu"/>
                 <img *ngIf="i == 4" src="assets/img/menu/icons-menu-05.svg" class="icon-menu"/>
             {{item.translation}}
         </a>
+
+        
         <!-- <ul>
             <li *ngFor="let item of menu[0].subMenu; let i = index">
                 <img *ngIf="i == 0" src="assets/img/menu/icons-menu-02.svg" class="icon-menu"/>
