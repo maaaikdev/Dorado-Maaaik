@@ -27,6 +27,7 @@ export class ServiceComponent implements OnInit {
   public workerProyects: WorkerProyects  [] = [];
   public chosenLang: string = "";
   public about: string = "";
+  public serviceName: string = "";
 
   constructor(private route: ActivatedRoute, private servicesService: ServicesService) { 
     this.service = {} as Service 
@@ -85,6 +86,8 @@ export class ServiceComponent implements OnInit {
         let translation = this.service.translations.find(t=> t.language == this.chosenLang);
     
         this.about = translation.about;
+
+        this.serviceName = translation.translation;
 
        this.service.workers.map(
           nested => 
