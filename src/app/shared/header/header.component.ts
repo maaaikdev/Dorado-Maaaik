@@ -60,11 +60,11 @@ export class HeaderComponent implements OnInit {
             this.isHome = false;
           }
           if (event.url) {
-            $('.hamburger').removeClass('is-active');
-            $(".menu").removeClass("menu-mobile");
-            $('.menu-list').removeClass('open-menu');
-			      $('.p-menu').removeClass('p-menu-open');
-			      $('.contenido').removeClass('p-menu-open-r');
+            // $('.hamburger').removeClass('is-active');
+            // $(".menu").removeClass("menu-mobile");
+            // $('.menu-list').removeClass('open-menu');
+			      // $('.p-menu').removeClass('p-menu-open');
+			      // $('.contenido').removeClass('p-menu-open-r');
           }
         }
       });
@@ -88,7 +88,8 @@ export class HeaderComponent implements OnInit {
       changeLanguage('es');
     } 
     this.chosenLang = l;
-    this.getSharedInfo();    
+    this.getSharedInfo();
+    console.log("Idioma header", l) 
   }
   hoverBtn(){
     // let menuAdd = $(".btn-nav")
@@ -191,8 +192,8 @@ export class HeaderComponent implements OnInit {
     error => console.log(error));    
   }
   changeLanguageFooter(lang){
-    changeLanguage(lang);
-    this.refreshPage();
+    changeLanguage(lang);    
+    this.refreshPage();    
   }
   refreshPage() {
     this._document.defaultView.location.reload();

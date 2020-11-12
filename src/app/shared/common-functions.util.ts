@@ -10,6 +10,6 @@ export function changeLanguage(lang:string){
 
 
   export function getLanguage(){
-      let lang = localStorage.getItem('l');
+      let lang = localStorage.getItem('l'); 
       return lang;
   }

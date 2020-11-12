@@ -1,6 +1,6 @@
 <div class="contact-page">
     <div class="row">
-        <div class="col-12 col-xl-6 text-left text-md-right align-self-center">
+        <div class="col-12 col-xl-5 text-left text-xs-left text-md-left text-lg-right align-self-center">
             <h2>{{translation.work_with_us_title}}</h2>
             <p *ngIf="translation.work_with_us != '-'">{{translation.work_with_us}}</p>
             <h3 *ngIf="translation.search_workers_title != '-'">{{translation.search_workers_title}}</h3>
@@ -11,7 +11,7 @@
             <a href="tel:{{contact.phone}}" *ngIf="contact.phone != '-'">{{contact.phone}}</a>
             <a [href]="emailTxt">{{contact.email}}</a>
         </div>
-        <div class="col-12 col-xl-6">
+        <div class="col-12 col-xl-7">
             <img src="assets/img/home/logo-dorado.png" alt="Logo Dorado" class="logo-dorado"/>
         </div>
     </div>

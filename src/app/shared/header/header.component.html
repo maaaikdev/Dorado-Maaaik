@@ -74,8 +74,12 @@
         </a>
         <!-- <div (click)="test()"> <p style="margin-top: 10px">EN/ESP</p> <p style="margin-top: 10px">EN/ESP</p></div> -->
         <ul class="lang-items">
-            <li><div (click)="changeLanguageFooter('en')">En/</div></li>
-            <li ><div (click)="changeLanguageFooter('es')">Esp</div></li>
+            <li >
+                <a (click)="changeLanguageFooter('en')" [ngClass]="chosenLang == 'en' ? 'active' : ''">En/</a>
+            </li>
+            <li >
+                <a (click)="changeLanguageFooter('es')" [ngClass]="chosenLang == 'es' ? 'active' : ''">Esp</a>
+            </li>
             
         </ul>
         <ul class="sm-items">

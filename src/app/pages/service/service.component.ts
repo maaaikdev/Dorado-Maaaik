@@ -81,7 +81,8 @@ export class ServiceComponent implements OnInit {
   
       this.servicesService.getService(slug).subscribe((data=> {
         
-        this.service = data.data[0];        
+        this.service = data.data[0];
+        
 
         let translation = this.service.translations.find(t=> t.language == this.chosenLang);
     
@@ -104,6 +105,8 @@ export class ServiceComponent implements OnInit {
           
             }
           }
+
+          console.log("Services", this.service)
 
 
       //  console.log(this.service);

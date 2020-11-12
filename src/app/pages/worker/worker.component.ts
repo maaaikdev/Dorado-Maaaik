@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { of, combineLatest } from 'rxjs'; 
 import Lity from 'lity';
 import GLightbox from 'glightbox';
+import { DomSanitizer } from '@angular/platform-browser';
 
 declare var $: any;
 
@@ -27,10 +28,14 @@ export class WorkerComponent implements OnInit {
   public position:string;
   public chosenLang: string = "";
   myGallery :any;
+  videoSelect: any;
 
 
   
-  constructor(private activeRoute: ActivatedRoute,private workerService: WorkersService 
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private workerService: WorkersService,
+    private dom:DomSanitizer
    ) { 
     this.worker = {} as Worker 
 
@@ -154,5 +159,14 @@ export class WorkerComponent implements OnInit {
         this.myGallery.setElements(arr);
         }),
         error => console.log(error));         
+      }
+
+      selectVideo(proyect, index){
+        var paramsVideo = '?autoplay=1&loop=1&muted=0'
+        this.videoSelect = this.dom.bypassSecurityTrustResourceUrl(proyect.project_id.vimeo + paramsVideo);
+      }
+
+      cerrarVideo(){
+        
       }
 }

@@ -86,6 +86,7 @@
   -o-transition: -o-transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease, -o-transform 0.3s ease;
+  position: relative; /* NEW */
 }
 .lity-loading .lity-content,
 .lity-closed .lity-content {
@@ -112,9 +113,12 @@
   z-index: 9994;
   width: 35px;
   height: 35px;
-  position: fixed;
+  /* position: fixed;
   right: 0;
-  top: 0;
+  top: 0; */
+  position: absolute;
+  right: 0;
+  top: -36px;
   -webkit-appearance: none;
   cursor: pointer;
   text-decoration: none;
@@ -122,7 +126,8 @@
   padding: 0;
   color: #fff;
   font-style: normal;
-  font-size: 35px;
+  /* font-size: 35px; */
+  font-size: 42px;
   font-family: Arial, Baskerville, monospace;
   line-height: 35px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);

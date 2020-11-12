@@ -38,6 +38,11 @@
         .lang-items {
             li {
                 text-transform: uppercase;
+                a {
+                    &.active {
+                        font-family: "futuraextra_black";
+                    }
+                }
             }
         }
         .sm-items {

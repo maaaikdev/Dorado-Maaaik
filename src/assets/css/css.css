@@ -237,6 +237,26 @@ a:-webkit-any-link:active{
 	padding-bottom: 56.25%; /*panorámico*/
 	padding-top: 25px;
 	height: 0;
+	width: 90%;
+    margin: -35px auto 0;
+}
+@media(max-width:767px){
+	.video_reel {
+		width: 100%;
+    	margin: 0;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 1199px){
+	.video_reel {
+		width: 100%;
+		margin: 0;
+	}
+}
+@media(min-width:1720px){
+	.video_reel {
+		width: 83%;
+		margin: -60px auto 0;
+	}
 }
 .video_reel iframe {
 	position: absolute;
