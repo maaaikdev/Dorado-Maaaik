@@ -92,7 +92,7 @@ export class ServiceComponent implements OnInit {
 
        this.service.workers.map(
           nested => 
-          nested.worker_id.projects.sort((a,b)=> (a.sort_order > b.sort_order) ? 1 : -1));
+          nested.worker_id.projects.sort((a,b)=> (a.sort_order > b.sort_order) ? -1 : 1));
 
 
           for(let  w of this.service.workers){

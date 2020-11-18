@@ -3,7 +3,7 @@
 <div *ngIf = "service != undefined && service.workers != undefined && service.workers.length > 0">
     <div class="row">
         <div class="col-12">
-            <h1 class="title">{{service.name}}</h1>
+            <h1 class="title">{{serviceName}}</h1>
         </div>
     </div>
     <div  *ngFor="let w of service.workers; let x = index" class="item-video">
