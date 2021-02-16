@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
 import { of, combineLatest } from 'rxjs'; 
 import Lity from 'lity';
 
+
+
 declare var $: any;
 
 
@@ -90,13 +92,18 @@ export class ServiceComponent implements OnInit {
 
         this.serviceName = translation.translation;
 
-       this.service.workers.map(
-          nested => 
-          nested.worker_id.projects.sort((a,b)=> (a.sort_order > b.sort_order) ? 1 : -1));
+      //  this.service.workers.map(
+      //     nested => 
+      //     nested.worker_id.projects.sort((a,b)=> (a.sort_order > b.sort_order) ? -1 : 1));
+
+
 
 
           for(let  w of this.service.workers){
             let index = 0;
+            let proyectsTemp = w.worker_id.projects;
+            proyectsTemp = proyectsTemp.sort((a,b)=> (a.project_id.sort_order > b.project_id.sort_order) ? 1 : -1) ;
+            w.worker_id.projects = proyectsTemp;
             for(let  p of w.worker_id.projects){
               let thumbnails = p.project_id.photo.data.thumbnails;
               let thumbnail = thumbnails.find(t=>t.key === 'directus-large-contain');

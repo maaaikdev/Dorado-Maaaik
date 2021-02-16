@@ -190,7 +190,11 @@ export class HeaderComponent implements OnInit {
     this.refreshPage();    
   }
   refreshPage() {
-    this._document.defaultView.location.reload();
+
+    setTimeout(() => this._document.defaultView.location.reload(true));
+   // setTimeout(() => window.location.reload());
+
+    
   }
 
 }

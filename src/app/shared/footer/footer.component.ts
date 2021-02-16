@@ -52,7 +52,8 @@ changeLanguageFooter(lang){
 }
 
 refreshPage() {
-  this._document.defaultView.location.reload();
+  //this._document.defaultView.location.reload(true);
+  setTimeout(() => this._document.defaultView.location.reload(true));
 }
 
 }

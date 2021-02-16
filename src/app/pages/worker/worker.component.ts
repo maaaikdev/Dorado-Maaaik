@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { of, combineLatest } from 'rxjs'; 
 import Lity from 'lity';
 import GLightbox from 'glightbox';
+
 import { DomSanitizer } from '@angular/platform-browser';
 
 declare var $: any;
@@ -129,7 +130,8 @@ export class WorkerComponent implements OnInit {
           this.worker.position = translationWorker.position;
           this.worker.about = translationWorker.about;
           this.proyectos = data.data[0].projects;
-          this.proyectos = this.proyectos.sort((a,b)=> (a.project_id.sort_order > b.project_id.sort_order) ? 1 : -1) 
+         this.proyectos = this.proyectos.sort((a,b)=> (a.project_id.sort_order > b.project_id.sort_order) ? 1 : -1) 
+      
           let arr = [];
           let index = 0;
         for(let  p of this.proyectos){          
