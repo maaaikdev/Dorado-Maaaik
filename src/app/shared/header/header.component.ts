@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, Inject } from '@angular/core';
+import { Component, OnInit, Injectable, Inject, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { getLanguage, changeLanguage } from '../common-functions.util';
@@ -24,6 +24,8 @@ import * as $ from "jquery";
 })
 
 export class HeaderComponent implements OnInit {
+  @Output() backgroundDinamic = new EventEmitter;
+
   private subscription: Subscription;
   public sharedInfo:any;
   public translationShared:Translation;
@@ -89,13 +91,10 @@ export class HeaderComponent implements OnInit {
     } 
     this.chosenLang = l;
     this.getSharedInfo();
-    console.log("Idioma header", l) 
   }
   hoverBtn(){
     // let menuAdd = $(".btn-nav")
-    // let menuEdition = $(".ul-edicion")
-    // console.log("menu ADD", menuAdd)
-    // console.log("menu", menuEdition);    
+    // let menuEdition = $(".ul-edicion") 
     // if(menuAdd[0].classList[1] == 'active-link'){
     //   menuEdition[0].classList.add("worker-names");
     //   //menuEdition[1].classList.remove("worker-names"); 
@@ -115,7 +114,7 @@ export class HeaderComponent implements OnInit {
 
   getSharedInfo(){
     return this.sharedService.getSharedInfo().toPromise().then(res => {      
-      this.sharedInfo = res.data[0];      
+      this.sharedInfo = res.data[0]; 
       this.translationShared = this.sharedInfo.translations.find(t=> t.language == this.chosenLang);
       this.serviceTitle = this.translationShared.service;
       this.contactName = this.translationShared.contact;      
@@ -134,7 +133,8 @@ export class HeaderComponent implements OnInit {
   getMenu(){
   
     this.menuService.getMenu().subscribe(((data:any)=> {      
-      this.menuItems = data.data;      
+      this.menuItems = data.data;
+      this.backgroundDinamic.emit(this.menuItems);
       this.menuItems =   this.menuItems.filter(f=>f.status === 'published');
       var raiz = this.menuItems.filter(f => f.parent === 'raiz');
       var raizMenu = raiz[0];
@@ -142,8 +142,7 @@ export class HeaderComponent implements OnInit {
       this.serviceTitle = translation.translation;  
 
       //trae el hijo
-      var subMenu =  this.menuItems.filter(f=>f.parent === raizMenu.slug);  
-      console.log("Menu final", subMenu)                      
+      var subMenu =  this.menuItems.filter(f=>f.parent === raizMenu.slug);                    
       subMenu.forEach((sub:Menu) => {
         let translationSub = sub.translations.find(t=> t.language == this.chosenLang);
         sub.translation = translationSub.translation;
@@ -158,7 +157,6 @@ export class HeaderComponent implements OnInit {
 
         sub.subMenu = subMenu2;
       })
-      // console.log("subMenu", subMenu)
       // if(this.urlCurrently == '/servicios/edicion/julian-rivera-contreras'){
       //   $("#btn00").addClass("active-link");
       // }
@@ -169,8 +167,7 @@ export class HeaderComponent implements OnInit {
       // this.menuItems.forEach((mi:Menu) => {
       //     let translation = mi.translations.find(t=> t.language == this.chosenLang);
       //     if(mi.parent==='raiz'){
-      //       this.serviceTitle = translation.translation;             
-      //     console.log(mi.name)
+      //       this.serviceTitle = translation.translation;     
       //     mi.translation = translation.translation;          
       //     //trae el hijo
       //     var subMenu =  this.menuItems.filter(f=>f.parent === mi.slug);          
@@ -182,12 +179,9 @@ export class HeaderComponent implements OnInit {
       //     })
       //     mi.subMenu = subMenu;
       //     this.menu.push(mi);
-      //     //console.log('push ' + menuItem)
       //   }       
 
       // })
-
-      //  console.log(this.worker);
     }),
     error => console.log(error));    
   }

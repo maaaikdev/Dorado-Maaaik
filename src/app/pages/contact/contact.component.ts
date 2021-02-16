@@ -59,16 +59,10 @@ export class ContactComponent implements OnInit {
       this.contact = data.data[0];
 
       this.translation = this.contact.translations.find(t=> t.language == this.chosenLang);
-      console.log("Tranlation", this.translation)
 
       this.emailTxt = 'mailto:'+ this.contact.email;
       // this.latitude = parseFloat(this.contact.lat);
       // this.longitude = parseFloat(this.contact.lon);
-
-      // console.log(this.latitude);
-      // console.log(this.longitude);
-
-
      
       //   this.center = {
       //     lat: this.latitude,
@@ -106,12 +100,6 @@ export class ContactComponent implements OnInit {
 
    // let latitude = parseFloat(this.contact.lat);
    // let longitude = parseFloat(this.contact.lon);
-
-    // console.log(this.contact.lat);
-    // console.log(this.contact.lon);
-
-    // console.log(this.latitude);
-    // console.log(this.longitude);
 
     // this.markers.push({
     //   position: {

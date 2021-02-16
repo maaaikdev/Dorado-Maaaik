@@ -105,12 +105,6 @@ export class ServiceComponent implements OnInit {
           
             }
           }
-
-          console.log("Services", this.service)
-
-
-      //  console.log(this.service);
-
       }),
       error => console.log(error));
 

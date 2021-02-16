@@ -49,7 +49,6 @@ export class FooterComponent implements OnInit {
 changeLanguageFooter(lang){
   changeLanguage(lang);  
   this.refreshPage();
-  console.log("Idioma footer", lang);
 }
 
 refreshPage() {

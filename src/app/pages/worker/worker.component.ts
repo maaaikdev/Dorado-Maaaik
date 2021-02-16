@@ -108,14 +108,12 @@ export class WorkerComponent implements OnInit {
   // overlay(i) {
   //   const portada = $("#portada"+i);
   //   if(portada ){
-  //     console.log("Dentro del id");
   //     $(".overlay-hover").addClass("hover");
   //   }
   // }
   // overlayOut(i) {
   //   const portada = $("#portada"+i);
   //   if(portada.css( 'opacity') === '1' ){
-  //     console.log("Dentro del id");
   //     portada.removeClass("hover");
   //   }
   // }
